@@ -1,8 +1,9 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Ejercicios {
 
-/*
+
     public void ejercicio1() {
         System.out.println("Ejercicio 1");
         final String nombre = "Christopher";
@@ -246,12 +247,94 @@ public class Ejercicios {
         boolean numeroMayorCincuenta = NumeroIntroducido > 50;
 
         System.out.println("Es un numero par: " + numeroPar);
-        System.out.println("Es un numero Mayor que 50: "+numeroMayorCincuenta);
+        System.out.println("Es un numero Mayor que 50: " + numeroMayorCincuenta);
     }
-    */
-    public void ejercicio12(){
-        
+
+    public void ejercicio12() {
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.println("Ejercicio 12");
+
+        System.out.println("Escribe una palabra: ");
+        String primeraPalabra = lectorTeclado.nextLine();
+
+        System.out.println("Escribe otra palabra: ");
+        String segundaPalabra = lectorTeclado.nextLine();
+
+        boolean esIgual = primeraPalabra.equals(segundaPalabra);
+        boolean esDistinta = !primeraPalabra.equals(segundaPalabra);
+        boolean esMenor = primeraPalabra.compareTo(segundaPalabra) < 0;
+
+        System.out.println("La primera palabra es igual que la segunda: " + esIgual);
+        System.out.println("La primera palabra es lleva menos letras que la segunda: " + esMenor);
+        System.out.println("La primera palabra es Distinta que la segunda: " + esDistinta);
+    }
+
+    public void ejercicio13() {
+        Scanner lectorTexto = new Scanner(System.in);
+        System.out.println("Ejercicio 13");
+
+        System.out.println("Escribe un numero entre 0 y 9:");
+        int PrimerNum = lectorTexto.nextInt();
+        boolean Solo = PrimerNum > 0 && PrimerNum < 9;
+
+        System.out.println("Escribe otro numero entre 0 y 9: ");
+        int segundoNum = lectorTexto.nextInt();
+        boolean Solo2 = segundoNum > 0 && segundoNum < 9;
+
+        boolean ParImpar = (PrimerNum % 2 == 0) && (segundoNum % 2 == 1);
+        System.out.println("El primer numero es par y el segundo impar:" + ParImpar);
+
+        boolean suDoSeIna8 = (PrimerNum > segundoNum * 2) && (PrimerNum < 8);
+        System.out.println("El primero es superior al doble del segundo e inferior a 8: " + suDoSeIna8);
+
+        boolean Soiguomen2 = (PrimerNum == segundoNum) || (PrimerNum - segundoNum < 2 && PrimerNum - segundoNum > -2);
+        System.out.println("Son iguales o la diferencia entre el primero y el segundo es menor que 2: " + Soiguomen2);
+
 
     }
+
+    public void ejercicio14() {
+        Scanner lectorTeclado = new Scanner(System.in);
+
+        System.out.println("Que edad Tienes?: ");
+        int Edad = lectorTeclado.nextInt();
+        boolean edadde = Edad > 0 && Edad < 100;
+        System.out.println("Edad: " + edadde);
+
+        System.out.println("Que nivel de estudios tienes?: ");
+        int NDS = lectorTeclado.nextInt();
+        boolean Niveles = NDS > 0 && NDS < 10;
+        System.out.println("Nivel de estudios: " + Niveles);
+
+        System.out.println("Cuales son rus ingresos: ");
+        int Ingresos = lectorTeclado.nextInt();
+        boolean Ing = Ingresos > 0 && Ingresos < 25000;
+        System.out.println("Sus ingresos son: " + Ing);
+
+        boolean Requisito1 = Edad > 40;
+        boolean Requisito2 = NDS > 4 && NDS < 9;
+        boolean Requisito3 = Ingresos < 15000;
+        boolean TodosRequisitos = Requisito1 && Requisito2 && Requisito3;
+        System.out.println("Mas de 40 años y estudios entre 5 y gana menos de 15000: " + TodosRequisitos);
+    }
+
+    public void ejercicio15() {
+        Scanner lectorTexto = new Scanner(System.in);
+        System.out.println("Ejercicio 15");
+
+        int Entero = 21;
+        System.out.println("Entero: " + Entero);
+        Entero += 5;
+        System.out.println("Incrementar 5 unidades: " + Entero);
+        Entero -= 3;
+        System.out.println("Decrementar 3 unidades: " + Entero);
+        Entero *= 10;
+        System.out.println("Multiplicar por 10: " + Entero);
+        Entero /= 2;
+        System.out.println("Dividir por 2: " + Entero);
+
+
+    }
+
 }
 
