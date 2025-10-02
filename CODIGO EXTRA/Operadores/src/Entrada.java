@@ -74,8 +74,10 @@ public class Entrada {
         System.out.println("Las palabras son iguales "+resultado);
         boolean resultado2=nombre1.length()>=4;
         System.out.println("Tu nombre tiene 4 letras "+resultado2);
+*/
+public void netedes Palabras O {
 
-        */
+
 
 
     }

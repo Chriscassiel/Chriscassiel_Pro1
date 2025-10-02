@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -45,26 +45,83 @@ public class Ejercicios {
     }
 
     public void ejercicio3() {
+        Scanner lectorTeclado = new Scanner(System.in);
 
         System.out.println("Ejercicio 3");
-        int numero1 = 24;
-        int numero2 = 7;
+        System.out.println("Selecciona 1er numero:");
+        int numero1 = lectorTeclado.nextInt();
+        System.out.println("Selecciona 2do numero");
+        int numero2 = lectorTeclado.nextInt();
 
-        int suma = numero1 + numero2;
-        int resta = numero1 - numero2;
-        int multiplicacion = numero1 * numero2;
-        int divisionEntera = numero1 / numero2;
-        int restoDivision = numero1 % numero2;
-        double divisionReal = (double) numero1 / numero2;
-        double restoReal = (double) numero1 % numero2;
+        if (numero1 < 0 || numero2 < 0) {
+            System.out.println("No se puede operar");
+        } else {
 
-        System.out.println("La Suma de ambos numeros es: " + suma);
-        System.out.println("El Resto de ambos numeros es: " + resta);
-        System.out.println("La Multiplicacion de ambos numeros es: " + multiplicacion);
-        System.out.println("La Division entera de ambos numeros es: " + divisionEntera);
-        System.out.println("El resto de la division de ambos numeros es: " + restoDivision);
-        System.out.println("La Division real de ambos numeros es: " + divisionReal);
-        System.out.println("EL resto real de ambos numeros es: " + restoReal);
+            System.out.println("Que quieres hacer?");
+            System.out.println("(1)Sumar:");
+            System.out.println("(2)Restar:");
+            System.out.println("(3)Multiplicar:");
+            System.out.println("(4)Dividision entera:");
+            System.out.println("(5)Sacar el resto de la division:");
+            System.out.println("(6)Division real: ");
+            System.out.println("(7)Sacar el resto real");
+            int Operacion = lectorTeclado.nextInt();
+
+            switch (Operacion) {
+                case 1:
+                    double suma = numero1 + numero2;
+                    System.out.println("La Suma de ambos numeros es: " + suma);
+                    break;
+
+                case 2:
+                    double resta = numero1 - numero2;
+                    System.out.println("La Resta de ambos numeros es: " + resta);
+                    break;
+
+                case 3:
+                    int multi = numero1 * numero2;
+                    System.out.println("La Multiplicacion de ambos numeros es: " + multi);
+                    break;
+
+                case 4:
+                    if (numero2 == 0) {
+                        System.out.println("Operacion no disponible");
+                        break;
+                    }
+                    double divisionEntera = (double) numero1 / numero2;
+                    System.out.println("La Division entera de ambos numeros es: " + divisionEntera);
+
+
+                case 5:
+                    if (numero2 == 0) {
+                        System.out.println("Operacion no disponible");
+                        break;
+                    }
+                    double restoDivision = numero1 % numero2;
+                    System.out.println("El resto de la division de ambos numeros es: " + restoDivision);
+                    break;
+
+                case 6:
+                    if (numero2 == 0) {
+                        System.out.println("Operacion no disponible");
+                        break;
+                    }
+                    double divisionReal = (double) numero1 / numero2;
+                    System.out.println("La Division real de ambos numeros es: " + divisionReal);
+                    break;
+
+                case 7:
+                    double restoReal = (double) numero1 % numero2;
+                    System.out.println("EL resto real de ambos numeros es: " + restoReal);
+                    break;
+
+                default:
+                    System.out.println("No has elejido ninguna operacion");
+
+                    break;
+            }
+        }
+
 
     }
 
@@ -189,18 +246,20 @@ public class Ejercicios {
         double CosteDeBebida = cantidadDeBebida * preciodebebida;
         double CosteDeBocata = cantidadDeBocata * preciodebocata;
         double CosteTotal = CosteDeBocata + CosteDeBebida;
-        System.out.printf(" \nNumero de bebidas (entre 0 y 20):          %.2f", cantidadDeBebida);
-        System.out.printf(" \nNumero de Bocadillos (entre 0 y 20):       %.2f", cantidadDeBocata);
-        System.out.printf(" \nPrecio de cada bebida (Entre 0,00 y 3,00): %.2f", preciodebebida);
-        System.out.printf(" \nPrecio de cada Bocata (entre 0,00 y 3,00): %.2f", preciodebocata);
-        System.out.printf(" \nNumero de alumnos (entre 1 y 10):          %.2f", cantidadDealumnos);
-        System.out.println("                                                 ");
-        System.out.println("\nARTICULO     CANTIDAD        PRECIO       COSTE");
-        System.out.printf(" \n==========   ==========      ======        ======");
-        System.out.printf(" \nBebida         %.2f,          %.2f,        %.2f", cantidadDeBebida, preciodebebida, CosteDeBebida);
-        System.out.printf(" \nBocadillo      %.2f,          %.2f,         %.2f", cantidadDeBocata, preciodebocata, CosteDeBocata);
-        System.out.printf(" \nTOTAL                                      %.2f", CosteTotal);
-        System.out.printf(" \n-----------------------------------------------");
+
+        System.out.printf(" Numero de bebidas (entre 0 y 20):          %.2f\n", cantidadDeBebida);
+        System.out.printf(" Numero de Bocadillos (entre 0 y 20):       %.2f\n", cantidadDeBocata);
+        System.out.printf(" Precio de cada bebida (Entre 0,00 y 3,00): %.2f\n", preciodebebida);
+        System.out.printf(" Precio de cada Bocata (entre 0,00 y 3,00): %.2f\n", preciodebocata);
+        System.out.printf(" Numero de alumnos (entre 1 y 10):          %.2f\n", cantidadDealumnos);
+        System.out.println("                                               \n");
+        System.out.println("ARTICULO     CANTIDAD        PRECIO       COSTE\n");
+        System.out.printf(" ==========   ==========      ======      ======\n");
+        System.out.printf(" Bebida         %.2f,          %.2f,        %.2f\n", cantidadDeBebida, preciodebebida, CosteDeBebida);
+        System.out.printf(" Bocadillo      %.2f,          %.2f,        %.2f\n", cantidadDeBocata, preciodebocata, CosteDeBocata);
+        System.out.printf(" TOTAL                                      %.2f\n", CosteTotal);
+        System.out.printf(" TOTAL                                      %.2f\n", CosteTotal / cantidadDealumnos);
+        System.out.printf(" -----------------------------------------------\n");
 
 
     }
@@ -209,26 +268,15 @@ public class Ejercicios {
         Scanner lectorTeclado = new Scanner(System.in);
         System.out.println("Ejercicio10");
 
-        System.out.println("Introduce Decenas de Mil: ");
-        int decenasDeMil = lectorTeclado.nextInt();
+        System.out.println("introduce un numero de 5 digitos");
+        int Numero = lectorTeclado.nextInt();
+        int Decenademil = (Numero / 10000);
+        int Unidadesdemil = (Numero / 1000) % 10;
+        int Centena = (Numero / 100) % 10;
+        int Decenas = (Numero / 10) % 10;
+        int Unidades = (Numero / 1) % 10;
 
-        System.out.println("Introduce Unidades de mil: ");
-        int unidadesDesDeMil = lectorTeclado.nextInt();
-
-        System.out.println("Introduce las centenas:");
-        int centenas = lectorTeclado.nextInt();
-
-        System.out.println("Introduce las Decenas: ");
-        int decenas = lectorTeclado.nextInt();
-
-        System.out.println("Introduce las Unidades: ");
-        int unidades = lectorTeclado.nextInt();
-
-        int Decenademil = decenasDeMil * 10000;
-        int Unidadesdemil = unidadesDesDeMil * 1000;
-        int Centena = centenas * 100;
-        int Decenas = decenas * 10;
-        int Unidades = unidades * 1;
+        System.out.println("Decenas dde mil: ");
 
 
         int NumeroIntroducido = Decenademil + Unidadesdemil + Centena + Decenas + Unidades;
@@ -336,5 +384,70 @@ public class Ejercicios {
 
     }
 
+    public void ejercicioif1() {
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.println("Ejercicio If1");
+
+        System.out.println("Escribe tu edad: ");
+        int edad = lectorTeclado.nextInt();
+        if (edad < 18) {
+            System.out.println("Eres menor de edad.");
+        } else if (edad >= 18) {
+            System.out.println("Eres mayor de edad");
+        }
+    }
+
+    public void ejercicioif2() {
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.println("Ejercicio IF 2");
+
+        System.out.println("Cual es tu salario anual: ");
+        int salario = lectorTeclado.nextInt();
+
+        double primerTramo = salario * 0.05;
+        double segundoTramo = salario * 0.15;
+        double tercerTramo = salario * 0.20;
+
+        if (salario < 10000) {
+            System.out.println("no paga impuestos: " + salario);
+        } else if (salario > 10000 && salario < 20000) {
+            System.out.println("De: "+salario);
+            System.out.println("Paga 5% de impuestos: " +primerTramo);
+        } else if (salario > 20000 && salario < 35000) {
+            System.out.println("De: "+salario);
+            System.out.println("Paga un 15% de impuesto: " +segundoTramo);
+        } else if (salario > 35000) {
+            System.out.println("De:"+salario);
+            System.out.println("Paga un 20% de impuestos: "+tercerTramo);
+        }
+    }
+
+    public  void  ejercicioif3(){
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.println("ejercicio if3");
+
+        System.out.println("Define el primer numero entero: ");
+        int primerEntero = lectorTeclado.nextInt();
+
+        System.out.println("Define el segundo entero: ");
+        int segundoEntero = lectorTeclado.nextInt();
+
+        System.out.println("Define el tercer entero: ");
+        int tercerEntero = lectorTeclado.nextInt();
+
+        if (primerEntero> segundoEntero && primerEntero> tercerEntero){
+            System.out.println("numero 1 es el Mayor de todos");
+        } else if (segundoEntero> primerEntero && segundoEntero> tercerEntero) {
+            System.out.println("numero 2 es el mayor de todos");
+        } else if (tercerEntero> primerEntero && tercerEntero> segundoEntero) {
+            System.out.println("numero 3 es el mayor de todos");
+        }
+
+    }
+    public void ejercicioif4(){
+        Scanner lectorTeclado = new Scanner(System.in);
+
+
+    }
 }
 
