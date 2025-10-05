@@ -444,9 +444,22 @@ public class Ejercicios {
         }
 
     }
+
     public void ejercicioif4(){
         Scanner lectorTeclado = new Scanner(System.in);
+        System.out.println("Ejercicioif4");
 
+        System.out.println("Consultar nota final:");
+
+
+    }
+
+    public void Examenfallido(){
+Scanner lectorTeclado = new Scanner(System.in);
+        System.out.println("Escribe tu nombre: ");
+        String nombre = lectorTeclado.nextLine();
+
+        System.out.println("Cuanto");
 
     }
 }
